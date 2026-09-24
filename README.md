@@ -1,6 +1,6 @@
 <div align="center">
-  <!-- Dynamic ASCII Squirtle Avatar -->
-  <img src="pokemon squirtle squad GIF-ascii.jpg" width="180" style="border-radius: 50%; border: 2px solid #4be260; box-shadow: 0 0 15px rgba(75, 226, 96, 0.4);" alt="ASCII Squirtle System" />
+  <!-- Dynamic ASCII Squirtle Avatar (Updated to .gif) -->
+  <img src="pokemon squirtle squad GIF-ascii.gif" width="180" style="border-radius: 50%; border: 2px solid #4be260; box-shadow: 0 0 15px rgba(75, 226, 96, 0.4);" alt="ASCII Squirtle System" />
   
   <br/><br/>
   <code>SQUIRTLE_SYS://01001001 • NEURAL-NODE.ONLINE</code>
