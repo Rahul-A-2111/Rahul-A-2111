@@ -11,13 +11,13 @@
 Currently, I am studying Computer Science Engineering from LICET and I am actively engaged in discovering and exploring new technologies such as artificial intelligence, machine learning, deep learning, computer vision and natural language processing. Along with academic curriculum, my interest and enthusiasm towards building projects that help me understand these technologies better also add to my learning process.
 
 
-## Tech stack cards
+## Tech stack
 
 <!-- PROFILE_LANGUAGES:START -->
 > Updating language data...
 <!-- PROFILE_LANGUAGES:END -->
 
-## Repository 
+## Repositories
 
 <!-- PROFILE_REPOSITORIES:START -->
 > Updating repository data...
