@@ -1,0 +1,79 @@
+name: Update profile README
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update-profile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate live profile lists
+        id: generate
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const owner = context.repo.owner;
+            const repositories = await github.paginate(github.rest.repos.listForUser, {
+              username: owner,
+              type: 'owner',
+              sort: 'updated',
+              per_page: 100
+            });
+            const publicRepos = repositories.filter(item => !item.fork && !item.private);
+            const featured = publicRepos.slice(0, 12);
+            const languageTotals = {};
+            for (const item of featured) {
+              const { data: languages } = await github.rest.repos.listLanguages({
+                owner: item.owner.login,
+                repo: item.name
+              });
+              for (const [language, bytes] of Object.entries(languages)) {
+                languageTotals[language] = (languageTotals[language] || 0) + bytes;
+              }
+            }
+
+            const totalBytes = Object.values(languageTotals).reduce((sum, value) => sum + value, 0) || 1;
+            const languageList = Object.entries(languageTotals)
+              .sort(([, first], [, second]) => second - first)
+              .slice(0, 10)
+              .map(([language, bytes]) => `- **${language}** - ${(bytes / totalBytes * 100).toFixed(1)}% of detected code`)
+              .join('\n');
+            const languageOutput = languageList || '> No language data available yet.';
+
+            const repositoryList = featured.map(item => {
+              const description = (item.description || 'No description provided.').replace(/[\r\n]/g, ' ');
+              const language = item.language || 'Code';
+              return `- [**${item.name}**](https://github.com/${item.full_name}) - ${description}  \n  Language: \`${language}\` | Stars: ${item.stargazers_count} | Forks: ${item.forks_count}`;
+            }).join('\n');
+            const repositoryOutput = repositoryList || '> No public repositories found.';
+
+            let readme = fs.readFileSync('README.md', 'utf8');
+            readme = readme.replace(/<!-- PROFILE_LANGUAGES:START -->[\s\S]*?<!-- PROFILE_LANGUAGES:END -->/, `<!-- PROFILE_LANGUAGES:START -->\n${languageOutput}\n<!-- PROFILE_LANGUAGES:END -->`);
+            readme = readme.replace(/<!-- PROFILE_REPOSITORIES:START -->[\s\S]*?<!-- PROFILE_REPOSITORIES:END -->/, `<!-- PROFILE_REPOSITORIES:START -->\n${repositoryOutput}\n<!-- PROFILE_REPOSITORIES:END -->`);
+            fs.writeFileSync('README.md', readme);
+            core.info(`Found ${publicRepos.length} public repositories and ${Object.keys(languageTotals).length} languages.`);
+
+      - name: Commit updated README
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "README is already up to date."
+          else
+            git commit -m "chore: update profile README data"
+            git push
+          fi
