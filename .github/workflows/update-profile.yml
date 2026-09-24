@@ -1,0 +1,74 @@
+name: Update profile README
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update-profile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+
+      - name: Update repository and language sections
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const repositories = await github.paginate(github.rest.repos.listForUser, {
+              username: owner,
+              type: 'owner',
+              sort: 'updated',
+              per_page: 100
+            });
+            const publicRepos = repositories.filter(item => !item.fork && !item.private);
+            const featured = publicRepos.slice(0, 12);
+            const languageTotals = {};
+
+            for (const item of featured) {
+              const { data: languages } = await github.rest.repos.listLanguages({
+                owner: item.owner.login,
+                repo: item.name
+              });
+              for (const [language, bytes] of Object.entries(languages)) {
+                languageTotals[language] = (languageTotals[language] || 0) + bytes;
+              }
+            }
+
+            const totalBytes = Object.values(languageTotals).reduce((sum, value) => sum + value, 0) || 1;
+            const languages = Object.entries(languageTotals)
+              .sort(([, first], [, second]) => second - first)
+              .slice(0, 10)
+              .map(([language, bytes]) => {
+                const percentage = (bytes / totalBytes * 100).toFixed(1);
+                return `- **${language}** - ${percentage}%`;
+              }).join('\n') || '- No language data available yet.';
+
+            const repositoryList = featured.map(item => {
+              const description = item.description || 'No description provided.';
+              const language = item.language || 'Code';
+              return `- [**${item.name}**](https://github.com/${item.full_name}) - ${description}  \n  \`${language}\` | stars: ${item.stargazers_count} | forks: ${item.forks_count}`;
+            }).join('\n') || '- No public repositories found.';
+
+            let readme = fs.readFileSync('README.md', 'utf8');
+            readme = readme.replace(/<!-- PROFILE_LANGUAGES:START -->[\s\S]*?<!-- PROFILE_LANGUAGES:END -->/, `<!-- PROFILE_LANGUAGES:START -->\n${languages}\n<!-- PROFILE_LANGUAGES:END -->`);
+            readme = readme.replace(/<!-- PROFILE_REPOSITORIES:START -->[\s\S]*?<!-- PROFILE_REPOSITORIES:END -->/, `<!-- PROFILE_REPOSITORIES:START -->\n${repositoryList}\n<!-- PROFILE_REPOSITORIES:END -->`);
+            fs.writeFileSync('README.md', readme);
+
+            const { data: current } = await github.rest.repos.getContent({ owner, repo, path: 'README.md' });
+            await github.rest.repos.createOrUpdateFileContents({
+              owner,
+              repo,
+              path: 'README.md',
+              message: 'chore: update profile README data',
+              content: Buffer.from(readme).toString('base64'),
+              sha: current.sha
+            });
