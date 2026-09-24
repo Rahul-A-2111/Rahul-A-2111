@@ -14,13 +14,26 @@ Currently, I am studying Computer Science Engineering from LICET and I am active
 ## Tech stack
 
 <!-- PROFILE_LANGUAGES:START -->
-> Updating language data...
+- **Python** - 50.2%
+- **JavaScript** - 33.7%
+- **CSS** - 15.5%
+- **HTML** - 0.5%
+- **Procfile** - 0.0%
 <!-- PROFILE_LANGUAGES:END -->
 
 ## Repositories
 
 <!-- PROFILE_REPOSITORIES:START -->
-> Updating repository data...
+- [**Rahul-A-2111**](https://github.com/Rahul-A-2111/Rahul-A-2111) - No description provided.  
+  `Code` | stars: 0 | forks: 0
+- [**FlyWire-Connectome-Music-Rater**](https://github.com/Rahul-A-2111/FlyWire-Connectome-Music-Rater) - FlyWire Connectome Music Rater is an interactive web application that evaluates audio tracks by simulating fruit fly (Drosophila melanogaster) Johnston's Organ sensory responses and downstream spiking neural dynamics using real connectomic synaptic data from the FlyWire public dataset.  
+  `Python` | stars: 0 | forks: 0
+- [**3D-website-practice**](https://github.com/Rahul-A-2111/3D-website-practice) - Just trying out how to create a 3d website for fun  
+  `JavaScript` | stars: 0 | forks: 0
+- [**Git-practice**](https://github.com/Rahul-A-2111/Git-practice) - For practice  
+  `Python` | stars: 0 | forks: 0
+- [**login-page**](https://github.com/Rahul-A-2111/login-page) - platform to buy and rent refurbsihed products  
+  `JavaScript` | stars: 0 | forks: 0
 <!-- PROFILE_REPOSITORIES:END -->
 
 ## SQUIRTLE SQUAD
