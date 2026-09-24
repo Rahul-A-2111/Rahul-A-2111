@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" width="72" alt="Pokeball">
+  <img src="ascii-art.png" width="200" alt="Pokeball">
   <h1>Rahul A.</h1>
   <p><strong>CS Student and AI/ML Enthusiast</strong></p>
   <p>Computer Science student at Loyola-ICAM College of Engineering and Technology (LICET), focused on artificial intelligence, machine learning, computer vision, and NLP.</p>
@@ -28,16 +28,11 @@ Each Pokeball links directly to its repository. The repository description and m
 > Updating repository data...
 <!-- PROFILE_REPOSITORIES:END -->
 
-## Current signal
+## SQUIRTLE SQUAD
 
 <div align="center">
-  <img src="./assets/profile.gif" width="320" alt="Profile animation">
+  <img src="./pokemon squirtle squad GIF-ascii.gif" width="320" alt="Profile animation">
 </div>
 
----
-
-<div align="center">
-  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5oHEehVjCAcqy73RVbtxo3SAVs2MgemO3FRA2fb14t97CciWFs1RLFDF66FN3uJ6AlgTwwube6FSQXTGLdrLSw6l9CA2_f47GpmeOGotl5COP5gyveQ3aGbctbLdguqE79J-yT0-dbiw-zMGAWazH7raWUVK0hpSugHOiQwEPcDWblhPIiOngplqVF1-YNEMS7r_rGTunUb2pumVUB0Ne4IIqJU_NxYyqigrnadbWTg496BA-ZUTHfIbk-D-pLdpew" width="160" alt="Squirtle animation">
-</div>
 
 _Last profile data refresh: maintained automatically by GitHub Actions._
