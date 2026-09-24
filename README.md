@@ -14,44 +14,24 @@
 - Based in Chennai, India
 - Building practical projects and learning in public
 
-## Tech stack
+## Tech stack cards
 
 <!-- PROFILE_LANGUAGES:START -->
-- **Python** - 50.2%
-- **JavaScript** - 33.7%
-- **CSS** - 15.5%
-- **HTML** - 0.5%
-- **Procfile** - 0.0%
+> Updating language data...
 <!-- PROFILE_LANGUAGES:END -->
 
-## Featured repositories
+## Pokeball repository carousel
+
+Each Pokeball links directly to its repository. The repository description and metadata are shown beneath it.
 
 <!-- PROFILE_REPOSITORIES:START -->
-- [**Rahul-A-2111**](https://github.com/Rahul-A-2111/Rahul-A-2111) - No description provided.  
-  `Code` | stars: 0 | forks: 0
-- [**FlyWire-Connectome-Music-Rater**](https://github.com/Rahul-A-2111/FlyWire-Connectome-Music-Rater) - FlyWire Connectome Music Rater is an interactive web application that evaluates audio tracks by simulating fruit fly (Drosophila melanogaster) Johnston's Organ sensory responses and downstream spiking neural dynamics using real connectomic synaptic data from the FlyWire public dataset.  
-  `Python` | stars: 0 | forks: 0
-- [**3D-website-practice**](https://github.com/Rahul-A-2111/3D-website-practice) - Just trying out how to create a 3d website for fun  
-  `JavaScript` | stars: 0 | forks: 0
-- [**Git-practice**](https://github.com/Rahul-A-2111/Git-practice) - For practice  
-  `Python` | stars: 0 | forks: 0
-- [**login-page**](https://github.com/Rahul-A-2111/login-page) - platform to buy and rent refurbsihed products  
-  `JavaScript` | stars: 0 | forks: 0
+> Updating repository data...
 <!-- PROFILE_REPOSITORIES:END -->
 
-## GitHub activity
+## Current signal
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Rahul-A-2111&show_icons=true&theme=github_dark&hide_border=true" alt="GitHub statistics">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Rahul-A-2111&layout=compact&theme=github_dark&hide_border=true" alt="Most used languages">
-</div>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Rahul-A-2111&theme=dark&hide_border=true" alt="GitHub streak">
-</div>
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake-dark.svg" alt="Contribution graph">
+  <img src="./assets/profile.gif" width="320" alt="Profile animation">
 </div>
 
 ---
