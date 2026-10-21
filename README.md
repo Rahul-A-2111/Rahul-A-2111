@@ -14,10 +14,10 @@ Currently, I am studying Computer Science Engineering from LICET and I am active
 ## Tech stack
 
 <!-- PROFILE_LANGUAGES:START -->
-- **Python** - 50.2% of detected code
-- **JavaScript** - 33.7% of detected code
-- **CSS** - 15.5% of detected code
-- **HTML** - 0.5% of detected code
+- **HTML** - 49.4% of detected code
+- **Python** - 39.3% of detected code
+- **JavaScript** - 7.7% of detected code
+- **CSS** - 3.6% of detected code
 - **Procfile** - 0.0% of detected code
 <!-- PROFILE_LANGUAGES:END -->
 
@@ -25,9 +25,11 @@ Currently, I am studying Computer Science Engineering from LICET and I am active
 
 <!-- PROFILE_REPOSITORIES:START -->
 - [**Rahul-A-2111**](https://github.com/Rahul-A-2111/Rahul-A-2111) - No description provided.  
-  Language: `Code` | Stars: 0 | Forks: 0
+  Language: `HTML` | Stars: 0 | Forks: 0
 - [**FlyWire-Connectome-Music-Rater**](https://github.com/Rahul-A-2111/FlyWire-Connectome-Music-Rater) - FlyWire Connectome Music Rater is an interactive web application that evaluates audio tracks by simulating fruit fly (Drosophila melanogaster) Johnston's Organ sensory responses and downstream spiking neural dynamics using real connectomic synaptic data from the FlyWire public dataset.  
   Language: `Python` | Stars: 0 | Forks: 0
+- [**Lab-Record-Agent**](https://github.com/Rahul-A-2111/Lab-Record-Agent) - An Ai agent to prepare lab records for college work  
+  Language: `HTML` | Stars: 0 | Forks: 0
 - [**3D-website-practice**](https://github.com/Rahul-A-2111/3D-website-practice) - Just trying out how to create a 3d website for fun  
   Language: `JavaScript` | Stars: 0 | Forks: 0
 - [**Git-practice**](https://github.com/Rahul-A-2111/Git-practice) - For practice  
