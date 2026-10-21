@@ -1,0 +1,191 @@
+@layer base {
+  html, body { margin: 0; padding: 0; }
+  body { overscroll-behavior: none; }
+  main > :first-child { margin-top: 0 !important; }
+  main > :last-child { margin-bottom: 0 !important; }
+}
+::-webkit-scrollbar { display: none; }
+
+/* Skip-to-content link (accessibility) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: #4be260;
+  color: #0a0e14;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  border-radius: 0 0 0.5rem 0;
+}
+.skip-link:focus { left: 0; }
+
+/* Cyber Matrix Scanline Effect */
+.scanlines {
+  background: linear-gradient(rgba(18, 24, 27, 0) 50%, rgba(0, 255, 128, 0.04) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* CRT Flicker & Glow */
+.crt-glow {
+  box-shadow: 0 0 20px rgba(75, 226, 96, 0.25), inset 0 0 25px rgba(75, 226, 96, 0.15);
+}
+
+/* Horizontal scroll styling */
+.pokeball-slider {
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.pokeball-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* 3D Matrix Poké-Orb Core Dynamics */
+.matrix-orb-wrap {
+  perspective: 800px;
+}
+
+.matrix-pokeball {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  background: #080c10;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.8), 0 0 15px rgba(34, 197, 94, 0.2);
+}
+
+.pokeball-card:hover .matrix-pokeball {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.9), 0 0 30px rgba(75, 226, 96, 0.45), 0 0 15px rgba(56, 189, 248, 0.3);
+}
+
+.pokeball-card:focus-within .matrix-pokeball {
+  box-shadow: 0 0 30px rgba(75, 226, 96, 0.6), 0 0 0 2px #4be260;
+}
+
+.pokeball-card:hover .binary-stream-top {
+  animation-duration: 2s;
+}
+
+.pokeball-card:hover .pokeball-matrix-btn {
+  box-shadow: 0 0 20px #4be260, 0 0 35px #38bdf8;
+  background-color: #ecfdf5;
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+/* Binary code texture scroll */
+@keyframes matrixStreamDown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.binary-stream-anim {
+  animation: matrixStreamDown 8s linear infinite;
+}
+
+/* Release Catch Animation on click */
+@keyframes pokeCatchFlash {
+  0% { transform: scale(1); filter: brightness(1); }
+  40% { transform: scale(0.9) rotate(8deg); filter: brightness(2.2) drop-shadow(0 0 30px #4be260); }
+  70% { transform: scale(1.1) rotate(-6deg); filter: brightness(1.6); }
+  100% { transform: scale(1) rotate(0deg); filter: brightness(1); }
+}
+.poke-active-trigger {
+  animation: pokeCatchFlash 0.55s ease-out;
+}
+
+/* Skeleton loading shimmer (prevents fake-content layout shift) */
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.skeleton-shimmer {
+  animation: skeletonPulse 1.4s ease-in-out infinite;
+}
+
+/* Learning ticker marquee */
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.learning-ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: tickerScroll 26s linear infinite;
+  will-change: transform;
+}
+.learning-ticker:hover .learning-ticker-track {
+  animation-play-state: paused;
+}
+
+/* "What I'm Learning" & solitaire card spreads */
+.solitaire-spread {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-top: 14px;
+  padding-bottom: 12px;
+  padding-left: 6px;
+  padding-right: 18px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.solitaire-spread::-webkit-scrollbar {
+  display: none;
+}
+
+.solitaire-card {
+  width: 90px;
+  height: 130px;
+  min-width: 90px;
+  margin-left: -14px;
+  position: relative;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #131821 0%, #0c1015 100%);
+  box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(56, 189, 248, 0.22);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, z-index 0s ease;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1;
+}
+.solitaire-spread .solitaire-card:first-child {
+  margin-left: 0;
+}
+.solitaire-card:hover {
+  transform: translateY(-14px) rotate(-1.5deg) scale(1.08);
+  z-index: 30 !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.85), 0 0 20px rgba(75, 226, 96, 0.35), 0 0 0 1.5px #4be260;
+}
+.solitaire-card.card-featured {
+  box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.65), 0 0 10px rgba(75, 226, 96, 0.3), 0 0 0 1.5px rgba(75, 226, 96, 0.55);
+}
+.solitaire-card.card-featured:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.9), 0 0 26px rgba(75, 226, 96, 0.6), 0 0 0 2px #4be260;
+}
+.card-watermark {
+  background-image: radial-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* Respect reduced-motion preferences: calm the animations for sensitive users */
+@media (prefers-reduced-motion: reduce) {
+  .binary-stream-anim,
+  .skeleton-shimmer,
+  .learning-ticker-track,
+  .poke-active-trigger,
+  .animate-ping,
+  .animate-pulse {
+    animation: none !important;
+  }
+  .matrix-pokeball,
+  .pokeball-card:hover .matrix-pokeball,
+  .solitaire-card,
+  .solitaire-card:hover {
+    transition: none !important;
+    transform: none !important;
+  }
+}
